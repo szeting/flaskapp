@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>House Prediction in Klang Valley</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1 style="font-size:20px; color:#F1F804;">House Price Prediction in Klang Valley</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST">
+    	<input type="text" name="Bedroom" placeholder="No of Bedroom" required="required" /><br>
+                <input type="text" name="Bathroom" placeholder="No of Bathroom" required="required" /><br>
+                <input type="text" name="SquareFeet" placeholder="Square Feet" required="required" /><br>
+	<input type="text" name="Carpark" placeholder="No of Carpark Provided" required="required" /><br>
+	<input type="text" name="Type" placeholder="Apartments or Houses" required="required" /><br>
+	<input type="text" name="Title" placeholder="Freehold or Leasehold" required="required" /><br>
+	<input type="text" name="Other_Info" placeholder="Bumi Lot / Non Bumi Lot / Malay Reserved" required="required" /><br>
+	<input type="text" name="State" placeholder="Kuala Lumpur or Selangor" required="required" /><br>
+	<button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+    </form>
+   <br>
+   <br>
+ </div>
+ <p><font color="#F52424" size="6">{{ prediction_text }}</font></p>
+
+</body>
+</html>
